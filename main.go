@@ -1,22 +1,24 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
+
+func analisarNotas(nota1, nota2 float64) (float64, string) {
+	media := (nota1 + nota2) / 2
+
+	if media >= 6 {
+		return media, "Aprovado"
+	} else {
+		return media, "Reprovado"
+	}
+}
 
 func main() {
 
-    nums := []int{1, 2, 3, 4, 5}
+	nota1 := 5.5
+	nota2 := 2.0
 
-    nums = append(nums, 6, 7, 8)
-
-    fmt.Println("Slice completo:", nums)
-    fmt.Println("Tamanho len:", len(nums))
-    fmt.Println("Capacidade cap:", cap(nums))
-	
-    nomes := []string{"Alice", "Bruno", "Carlos", "Daniela", "Eduardo"}
-
-    fmt.Println("Dois primeiros:", nomes[:2])
-
-    fmt.Println("Dois últimos:", nomes[len(nomes)-2:])
-
-    fmt.Println("Nome do meio:", nomes[2:3])
+	media, situacao := analisarNotas(nota1, nota2)
+	fmt.Printf("Média: %.2f\nSituação: %s\n", media, situacao)
 }
